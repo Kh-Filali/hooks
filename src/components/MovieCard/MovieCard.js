@@ -2,12 +2,12 @@ import React from 'react'
 import { Card, Button } from 'react-bootstrap';
 import "./card.css"
 import Stars from '../Stars/Stars';
-// import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
-const MovieCard = ({ movie: { title, image, desc, year, rate } }) => {
+const MovieCard = ({ movie: { title, image, desc, year, rate, id } }) => {
     return (
         <div >
-            <Card style={{ width: '18rem'}}>
+            <Card style={{ width: '18rem', height: '53rem'}}>
                 <Card.Img variant="top" src={image} />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title> 
@@ -17,7 +17,9 @@ const MovieCard = ({ movie: { title, image, desc, year, rate } }) => {
                         <Stars rate={rate} isEdit={false} />
 
                     </Card.Text>
+                    <Link to={`/Details/${ id }`}>
                     <Button variant="primary">Show more</Button>
+                    </Link>
                 </Card.Body>
             </Card>
 
